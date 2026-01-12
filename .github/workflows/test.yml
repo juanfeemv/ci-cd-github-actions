@@ -2,7 +2,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: 
+    branches:
       - main
       - feature/*
   pull_request:
@@ -14,16 +14,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Clonar el repositorio
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 2. Configurar Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
 
-      - name: Install dependencies (including dev)
+      # 3. Instalar dependencias (incluyendo devDependencies)
+      - name: Install dependencies
         run: npm install --include=dev
 
+      # 4. Ejecutar los tests
       - name: Run tests
         run: npx mocha --exit
