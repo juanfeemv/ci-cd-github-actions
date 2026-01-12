@@ -1,18 +1,16 @@
 const express = require('express');
 const _ = require('underscore');
 
-const port = process.env.PORT || 3000;
 const animals = {
-    "cat": "meow",
-    "dog": "bark",
-    "eel": "hiss",
-    "bear": "growl",
-    "frog": "croak",
-    "lion": "roar",
-    "bird": "tweet",
-    "sheep": "baa",
-    "duck" : "quack"
-  };
+  cat: "meow",
+  dog: "bark",
+  eel: "hiss",
+  bear: "growl",
+  frog: "croak",
+  lion: "roar",
+  bird: "tweet"
+};
+
 
 function getAnimal() {
   return _.sample(Object.entries(animals));
@@ -23,7 +21,7 @@ const app = express();
 app.get('/', async (req, res, next) => {
   try {
     const [animal_name, sound] = getAnimal();
-    res.status(200).send(`
+    res.status(200).type('html').send(`
       George Orwell had a farm.<br />
       E-I-E-I-O<br />
       And on his farm he had a ${animal_name}.<br />
@@ -46,14 +44,10 @@ app.get('/api', async (req, res, next) => {
   }
 });
 
-// Middleware para manejar errores
+// Middleware para errores
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send('Something went wrong!');
 });
 
-const server = app.listen(port, () => {
-  console.log(`Launching server on http://localhost:${port}`);
-});
-
-module.exports = server; 
+module.exports = app;
