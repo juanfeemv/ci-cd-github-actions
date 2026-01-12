@@ -22,9 +22,8 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies (including devDependencies)
+      - name: Install dependencies (including dev)
         run: npm install --include=dev
 
-
       - name: Run tests
-        run: npm test
+        run: npx nyc --reporter=html mocha --exit
