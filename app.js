@@ -1,6 +1,7 @@
 const express = require('express');
 const _ = require('underscore');
 
+// Objetivo: este objeto debe coincidir con lo que espera el test
 const animals = {
   cat: "meow",
   dog: "bark",
@@ -8,10 +9,9 @@ const animals = {
   bear: "growl",
   frog: "croak",
   lion: "roar",
-  bird: "tweet"
-  sheep : "baa"
+  bird: "tweet",
+  sheep: "baa"
 };
-
 
 function getAnimal() {
   return _.sample(Object.entries(animals));
