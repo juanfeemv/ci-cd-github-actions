@@ -25,5 +25,8 @@ jobs:
       - name: Install dependencies (including dev)
         run: npm install --include=dev
 
+      - name: Install nyc globally
+        run: npm install -g nyc
+
       - name: Run tests
-        run: npx nyc --reporter=html mocha --exit
+        run: nyc --reporter=html mocha --exit
