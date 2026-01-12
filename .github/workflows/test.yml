@@ -26,8 +26,8 @@ jobs:
 
       # 3. Instalar dependencias (incluyendo devDependencies)
       - name: Install dependencies
-        run: npm install --include=dev
+        run: npm ci --include=dev
 
-      # 4. Ejecutar los tests
+      # 4. Ejecutar tests
       - name: Run tests
-        run: npx mocha --exit
+        run: npx --no-install mocha --exit
