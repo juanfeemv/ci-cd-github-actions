@@ -9,6 +9,7 @@ const animals = {
   frog: "croak",
   lion: "roar",
   bird: "tweet"
+  sheep : "baa"
 };
 
 
