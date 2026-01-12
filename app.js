@@ -15,7 +15,6 @@ const animals = {
     "snake": "slither",
     "cow": "moo",
     "pig": "oink",
-    "human": "hello"
 };
 
 function getAnimal() {
