@@ -13,9 +13,7 @@ const animals = {
     "sheep": "baa",
     "duck" : "quack",
     "snake": "slither",
-    "cow": "moo",
-    "pig": "oink",
-};
+  };
 
 function getAnimal() {
   return _.sample(Object.entries(animals));
