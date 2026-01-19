@@ -1,4 +1,4 @@
-const serverless = require('serverless-http');
 const app = require('../app');
 
-module.exports = serverless(app);
+// Vercel Node runtime can use the Express app directly as a handler.
+module.exports = app;
